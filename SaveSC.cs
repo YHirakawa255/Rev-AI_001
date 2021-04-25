@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+// using UnityEngine;
 
 public class SaveCls{
     //Agent
-    static public int nAgent = Main.Agent.Length;
+    DebugCls Debug = new DebugCls();
+    static public int nAgent = Rev_AI_001.Program.Agent.Length;
     double[] cA1 = new double[nAgent];
     double[] cB1 = new double[nAgent];
     double[] cC1 = new double[nAgent];

@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+// using UnityEngine;
 
 public class OptiCls{
     public int Counter;
@@ -8,7 +8,7 @@ public class OptiCls{
     // public bool FBaseRoundRobin = true;
     // public bool FOptSetRequire;//?
     // public bool FAgentUpdateRequire;
-    static public int nAgent = Main.Agent.Length;
+    static public int nAgent = Rev_AI_001.Program.Agent.Length;
     public double[,] Result = new double[nAgent, nAgent];//戦績の配列
     public double[,] ResultDelBlack = new double[nAgent, nAgent];//戦績の配列（黒摂動あり）
     public double[,] ResultDelWhite = new double[nAgent, nAgent];//戦績の配列（白摂動あり）
@@ -20,6 +20,7 @@ public class OptiCls{
     public double[] SumResultDel = new double[nAgent];//戦績集計値（摂動あり）
     string SLog = "";
     BisecManageClass BisecManager = new BisecManageClass();
+    DebugCls Debug = new DebugCls();
     //KKKKKKKKKKKKKKKKKKKK(RoundRobinAll)
     public void CalcSumResult(){//総当たりの合計戦績を計算
         string S = "CalcSumResult\n\r";

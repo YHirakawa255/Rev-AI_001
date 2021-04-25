@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+// using UnityEngine;
 
 public class AgentCls : DirCls{
     public int BisecState = 0;//二分法の状態管理
@@ -25,6 +25,7 @@ public class AgentCls : DirCls{
     public double pNow, RNow;//現在探索値
     public BisecManageClass BisecManager = new BisecManageClass();
     double Strength = 0;
+    DebugCls Debug = new DebugCls();
     //KKKKKKKKKKKKKKKKKKKK(Init)
     public void InitAgent(int id){//エージェントの初期化、ランダム生成（今後、最適化中断データを読み込めるように）
         MyID = id;
@@ -44,17 +45,17 @@ public class AgentCls : DirCls{
         for(Layer=0; Layer<5; Layer++){
             for(i1=0; i1<64; i1++){
                 for(i2=0; i2<64; i2++){
-                    A[Layer, i1, i2] = Main.rnd.NextDouble() - 0.5;//-0.5~0.5
+                    A[Layer, i1, i2] = Rev_AI_001.Program.rnd.NextDouble() - 0.5;//-0.5~0.5
                 }
             }
         }
         for(Layer=0; Layer<5; Layer++){
             for(i1=0; i1<64; i1++){
-                B[Layer, i1] = Main.rnd.NextDouble() - 0.5;//-0.5~0.5
+                B[Layer, i1] = Rev_AI_001.Program.rnd.NextDouble() - 0.5;//-0.5~0.5
             }
         }
         for(i1=0; i1<64; i1++){
-            C[i1] = Main.rnd.NextDouble() - 0.5;//-0.5~0.5
+            C[i1] = Rev_AI_001.Program.rnd.NextDouble() - 0.5;//-0.5~0.5
         }
     }
     //KKKKKKKKKKKKKKKKKKKK
@@ -225,7 +226,7 @@ public class AgentCls : DirCls{
         for(int Layer = 0; Layer<5; Layer++){
             for(int i1=0; i1<64; i1++){
                 for(int i2=0; i2<64; i2++){
-                    dA[Layer,i1,i2] = cA1 * (2 * Main.rnd.NextDouble() - 1 );//d:探索方向ベクトル
+                    dA[Layer,i1,i2] = cA1 * (2 * Rev_AI_001.Program.rnd.NextDouble() - 1 );//d:探索方向ベクトル
                     // DA[i1,i2] = A[i1,i2] + dA[i1,i2];
                 }
             }
@@ -233,13 +234,13 @@ public class AgentCls : DirCls{
         //dB
         for(int Layer=0; Layer<5; Layer++){
             for(int i1=0; i1<64; i1++){
-                dB[Layer,i1] = cB1 * ( 2 * Main.rnd.NextDouble() - 1 );//-0.5~0.5
+                dB[Layer,i1] = cB1 * ( 2 * Rev_AI_001.Program.rnd.NextDouble() - 1 );//-0.5~0.5
                 // DB[i1] = B[i1] + dB[i1];
             }
         }
         //dC
         for(int i1=0; i1<64; i1++){
-            dC[i1] = cC1 * ( 2 * Main.rnd.NextDouble() - 1 );//-0.5~0.5
+            dC[i1] = cC1 * ( 2 * Rev_AI_001.Program.rnd.NextDouble() - 1 );//-0.5~0.5
             // DC[i1] = C[i1] + dC[i1];
         }
     }
@@ -449,6 +450,7 @@ public class BisecManageClass{
     bool stateEx;//ture:極値探索モード
     bool stateEx1;//true:探索の片側だけ（現在値の反対側も調べる必要があることを示す）
     bool stateEq, stateEqSub;
+    DebugCls Debug = new DebugCls();
     //KKKKKKKKKKKKKKKKKKKK
     public double InitBisec(ref double pe, ref double rOpt){//(Set)探索開始時、世代のはじめに実行される
         //この関数自体は最初の探索点を返す
