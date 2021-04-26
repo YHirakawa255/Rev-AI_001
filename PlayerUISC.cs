@@ -17,13 +17,13 @@ public class PlayerUISC{
         int n = -1;
         SelectMax = 2;
         // LRSelecting();//入力受付
-        Select = ReadLineSelect("Select mode: <1>: VS Player, <2>: Learning, <3>: Bit Boad","1","2","3");
+        Select = ReadLineSelect("Select mode: <1>: VS Player, <2>: Learning, <3>: Bit Boad Test","1","2","3");
         if(SelectChangeAndValue(0)){
-            Debug.Log( "  <<VS Player>> / Learning / Bit Boad\r\n Press Enter" );
+            Debug.Log( "  <<VS Player>> / Learning / Bit Boad Test\r\n Press Enter" );
         }else if(SelectChangeAndValue(1)){
-            Debug.Log( "  VS Player / <<Learning>> / Bit Boad\r\n Press Enter" );
+            Debug.Log( "  VS Player / <<Learning>> / Bit Boad Test\r\n Press Enter" );
         }else if(SelectChangeAndValue(2)){
-            Debug.Log( "  VS Player / Learning / <<Bit Boad>>\r\n Press Enter" );
+            Debug.Log( "  VS Player / Learning / <<Bit Boad Test>>\r\n Press Enter" );
         }
         if( PushReturn() ){//Enter押されたとき
             n = Select;
@@ -90,8 +90,9 @@ public class PlayerUISC{
         //配置場所が変更になったらTrueを返す
         SelectMax = nPutList;//選択肢の最大値
         bool Change = SelectChanged(true);//選択肢が変更になったときtrue
-        Change |= LRSelecting();//入力受付（変更があるときtrue）
+        // Change |= LRSelecting();//入力受付（変更があるときtrue）
         bool Decide = PushReturn();//選択肢を確定させたときtrue
+        Select = ReadLineSelect("!!! Select putting place No. !!!", nPutList);
         int S = Select;//現在選択している値
         if(Change){ Selected = Select;  }
         if(Decide){
@@ -164,7 +165,7 @@ public class PlayerUISC{
     //KKKKKKKKKKKKKKKKKKKK
     int ReadLineSelect(string coment, params string[] s){//入力を受け付けて選択する関数
     //脱Unityのために導入
-        for (int i0 = 0; i0 < 10; i0++){
+        while(true){
             Console.WriteLine($"\r\n{coment}");
             string input = Console.ReadLine();
             for (int i1 = 0; i1 < s.Length; i1++){
@@ -175,23 +176,26 @@ public class PlayerUISC{
             }
             Console.WriteLine(">> Warning!!! Your selection is not Correct");
         }
-        return 0;
     }
     //KKKKKKKKKKKKKKKKKKKK
     int ReadLineSelect(string coment, int max){//入力を受け付けて選択する関数
     //脱Unityのために導入
         Console.WriteLine($"\r\n{coment}");
-        for (int i1 = 0; i1 < 10; i1++){
+        while(true){
             string input = Console.ReadLine();
-            int inputint = int.Parse(input);
-            if(inputint<=max){
-                Console.WriteLine($">> Select : <{inputint}>");
-                return inputint;
-            }else{
+            int inputint;
+            if(input == ""){
                 Console.WriteLine(">> Warning!!! Your selection is not Correct");
+            }else{
+                inputint = int.Parse(input);
+                if(0<=inputint && inputint<=max){
+                    Console.WriteLine($">> Select : <{inputint}>");
+                    return inputint;
+                }else{
+                    Console.WriteLine(">> Warning!!! Your selection is not Correct");
+                }
             }
         }
-        return 0;
     }
 
 }

@@ -356,6 +356,7 @@ public class BoadCls : DirCls{
     public string GetConsolPrint(string s = "", int Select = -1){//盤面のコンソール出力用文字列を生成する
         //盤面の簡易表示
         string S = $"{s}\n\r";//表示するときに好きな文字列を表示できる
+        int N = 0;
         int putP = 0;
         for(int iy = 0; iy<8; iy++){
             for(int ix=0; ix<8; ix++){
@@ -364,11 +365,12 @@ public class BoadCls : DirCls{
                 }else if(Stone[ix,iy]==White){
                     S += "口";//白
                 }else if( (putList[putP].x == ix) && (putList[putP].y == iy) ){ 
-                    if(putP==Select){
-                        S += "十";//配置選択中
+                    if(N<10){
+                        S += $"_{N}";
                     }else{
-                        S += "＊";//配置候補
+                        S += $"{N}";
                     }
+                    N++;
                     putP++;
                 }else if( StoneEdge[ix,iy] ){
                     S += "＿";//配置可能検定候補

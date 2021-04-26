@@ -12,12 +12,12 @@ namespace Rev_AI_001
             //StartはUnityオブジェクトが読み込まれた時、最初に一度だけ実行される
             Start();
             //UpdateはUnity内の１フレーム毎に実行される（実質的にはMain）
-            while(true){
+            while(!Flag.FFinProgram){
                 Update();
             }
         }
         //KKKKKKKKKKKKKKKKKKKK
-        static public AgentCls[] Agent = new AgentCls[4];//AI
+        static public AgentCls[] Agent = new AgentCls[8];//AI 及びその数
         static BoadCls Boad = new BoadCls();//盤面
         static BitBoadCls BitBoad = new BitBoadCls();
         static string DebugString;//デバッグ情報をフレームの最後に表示するための文字列
@@ -405,13 +405,14 @@ namespace Rev_AI_001
             //着手
             if (Boad.ActiveFirstPlayer == Flag.FPlayerBlack){
                 //人の手番のとき
+                Boad.ConsolPrint($"Selecting {PlayerUI.GetSelect()}", -1);
                 (FChange, FDecide, Select) = PlayerUI.SelectPut(Boad.nPutList - 1);//配置場所選択
                 if (FChange){//配置ポインタ変更=>表示
                     Boad.ConsolPrint($"Selecting {PlayerUI.GetSelect()}", Select);
                 }
                 if (FDecide){//配置場所決定=>配置して表示
                     Boad.AutoPut(Select, ref Agent[Flag.BattleAI]);//着手
-                    Boad.ConsolPrint("put");//表示
+                    Boad.ConsolPrint($"put", Select);//表示
                 }
             }
             else
@@ -436,7 +437,8 @@ namespace Rev_AI_001
             //ゲーム終了時はここが処理される
             if (Flag.FFinGame)
             {
-                // Debug.Log("Game Fin");
+                Debug.Log("Game Fin");
+                Flag.FFinProgram = true;
             }
 
         }

@@ -743,7 +743,7 @@ public class BisecManageClass{
     //KKKKKKKKKKKKKKKKKKKK(Debug)
     void StackLog(string s, bool r = true){//デバッグ用の文字列を格納する
         SLog += s;
-        Debug.Log( MyID + "Stack Log : \n\r" + SLog );
+        Debug.Log($"\n\r AI: {MyID} Stack Log : \n\r{SLog}" );
         if(r){
             SLog += "\n\r";
         }

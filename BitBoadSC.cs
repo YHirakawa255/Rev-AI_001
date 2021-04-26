@@ -321,6 +321,7 @@ public class BitBoadCls{
     public string GetConsolPrint(UInt64 B = 0, UInt64 W = 0, string s = "", int Select = -1){
         string S = $"{s}\n\r";
         UInt64 P = 0x8000_0000_0000_0000;
+        int N = 0;
         // ConsolBitPrint(StoneBW[0],"Black");
         // ConsolBitPrint(StoneBW[1],"White");
         // ConsolBitPrint(CanPut,"Putable");
@@ -335,7 +336,12 @@ public class BitBoadCls{
                 }else if( (W & P) > 0 ){
                     S += "口";//白
                 }else if( (CanPut & P) > 0 ){
-                    S += "＊";//
+                    if(N<10){
+                        S += $" {N}";
+                    }else{
+                        S += $"{N}";
+                    }
+                    N++;
                 }else{
                     S += "＿";//完全な空白
                 }

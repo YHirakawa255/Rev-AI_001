@@ -22,6 +22,7 @@ public class FlagCls{
     public bool FSelectAI = true;//AI選択状態
     public int BattleAI;//選択AI
     public bool FFinGame = false;
+    public bool FFinProgram = false;
     //KKKKKKKKKKKKKKKKKKKK
     //KKKKKKKKKKKKKKKKKKKK
     public FlagCls(){//オーバーロード
