@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+// using UnityEngine;
 using System.Linq;
 using System.Threading.Tasks;//並列処理
 
@@ -21,6 +21,7 @@ public class BitBoadCls{
     bool[] DirShiftWallF = new bool[8];
     int[] DirShiftSwitch = new int[8];
     UInt64 Wall = new UInt64();
+    DebugCls Debug = new DebugCls();
     //KKKKKKKKKKKKKKKKKKKK
     public BitBoadCls(){//オーバーロード
         PointerPrepare();
@@ -373,12 +374,21 @@ public class BitBoadCls{
     }
     //KKKKKKKKKKKKKKKKKKKK
     int CountBit(UInt64 aug){
+<<<<<<< Updated upstream:Rev-AI-001/Assets/BitBoadSC.cs
         aug = (aug & 0x_5555_5555_5555_5555) + (aug>>1 & 0x_5555_5555_5555_5555);
         aug = (aug & 0x_3333_3333_3333_3333) + (aug>>2 & 0x_3333_3333_3333_3333);
         aug = (aug & 0x_0F0F_0F0F_0F0F_0F0F) + (aug>>4 & 0x_0F0F_0F0F_0F0F_0F0F);
         aug = (aug & 0x_00FF_00FF_00FF_00FF) + (aug>>8 & 0x_00FF_00FF_00FF_00FF);
         aug = (aug & 0x_0000_FFFF_0000_FFFF) + (aug>>16 & 0x_0000_FFFF_0000_FFFF);
         aug = (aug & 0x_0000_0000_FFFF_FFFF) + (aug>>32 & 0x_0000_0000_FFFF_FFFF);
+=======
+        aug = (aug & 0x5555_5555_5555_5555) + (aug>>1 & 0x5555_5555_5555_5555);
+        aug = (aug & 0x3333_3333_3333_3333) + (aug>>2 & 0x3333_3333_3333_3333);
+        aug = (aug & 0x0F0F_0F0F_0F0F_0F0F) + (aug>>4 & 0x0F0F_0F0F_0F0F_0F0F);
+        aug = (aug & 0x00FF_00FF_00FF_00FF) + (aug>>8 & 0x00FF_00FF_00FF_00FF);
+        aug = (aug & 0x0000_FFFF_0000_FFFF) + (aug>>16 & 0x0000_FFFF_0000_FFFF);
+        aug = (aug & 0x0000_0000_FFFF_FFFF) + (aug>>32 & 0x0000_0000_FFFF_FFFF);
+>>>>>>> Stashed changes:BitBoadSC.cs
         return (int)aug;
     }
     //KKKKKKKKKKKKKKKKKKKK

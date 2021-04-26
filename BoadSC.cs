@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+// using UnityEngine;
 
 public class BoadCls : DirCls{
     const int Black = 1;
@@ -22,6 +22,7 @@ public class BoadCls : DirCls{
     string SPutLog = "";//配置の履歴
     public int[,] Stone = new int[8,8];
     public bool[,] StoneEdge = new bool[8,8];
+    DebugCls Debug = new DebugCls();
     //KKKKKKKKKKKKKKKKKKKK
     public void InitBoad(){//盤面の初期化：ゲーム開始時にする
         //盤面の初期化
