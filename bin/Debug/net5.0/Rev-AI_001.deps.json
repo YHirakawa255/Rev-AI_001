@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Rev-AI_001/1.0.0": {
+        "runtime": {
+          "Rev-AI_001.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Rev-AI_001/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/hixyelse/.dotnet/store/|arch|/|tfm|",
+      "/Users/hixyelse/.nuget/packages"
+    ]
+  }
+}

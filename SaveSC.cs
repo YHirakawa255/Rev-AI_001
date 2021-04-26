@@ -51,8 +51,8 @@ public class SaveCls{
                     BufA.A[i2] = aug.A[Layer,i1,i2];//配列を移し替える
                 }
                 Key = GetKeyString(aug.MyID, "A", Layer, i1);//キーを生成
-                sJson = JsonUtility.ToJson(BufA);//AをJson形式に変換
-                PlayerPrefs.SetString(Key, sJson);//Josn文字列として保存
+            // sJson = JsonUtility.ToJson(BufA);//AをJson形式に変換
+            // PlayerPrefs.SetString(Key, sJson);//Josn文字列として保存
                 DebugString += Key + "\r\n";//何を保存したのか（デバッグ）
                 // Debug.Log("Save Key:"+Key+" : "+sJson);
             }
@@ -63,8 +63,8 @@ public class SaveCls{
                 BufB.B[i1] = aug.B[Layer,i1];
             }
             Key = GetKeyString(aug.MyID, "B", Layer, 0);//キーを生成
-            sJson = JsonUtility.ToJson(BufB);//BをJson形式に変換
-            PlayerPrefs.SetString(Key, sJson);//Json文字列として保存
+        // sJson = JsonUtility.ToJson(BufB);//BをJson形式に変換
+        // PlayerPrefs.SetString(Key, sJson);//Json文字列として保存
             DebugString += Key + "\r\n";//何を保存したのか（デバッグ）
             // Debug.Log("Save Key:"+Key+" : "+sJson);
         }
@@ -73,8 +73,8 @@ public class SaveCls{
             BufC.C[i1] = aug.C[i1];
         }
         Key = GetKeyString(aug.MyID, "C", 0, 0);//キーを生成
-        sJson = JsonUtility.ToJson(BufC);//CをJson形式に変換
-        PlayerPrefs.SetString(Key, sJson);//Json文字列として保存
+    // sJson = JsonUtility.ToJson(BufC);//CをJson形式に変換
+    // PlayerPrefs.SetString(Key, sJson);//Json文字列として保存
         DebugString += Key + "\r\n";//何を保存したのか（デバッグ）
         // Debug.Log("Save Key:"+Key+" : "+sJson);
 
@@ -91,10 +91,10 @@ public class SaveCls{
         for(Layer = 0; Layer<5; Layer++){
             for(i1 = 0; i1<64; i1++){
                 Key = GetKeyString(aug.MyID, "A", Layer, i1);//キー取得
-                sJson = JsonUtility.ToJson(BufA);//デフォルト値
-                sJson= PlayerPrefs.GetString(Key, sJson);//Json形式のロード
+            // sJson = JsonUtility.ToJson(BufA);//デフォルト値
+            // sJson= PlayerPrefs.GetString(Key, sJson);//Json形式のロード
                 // Debug.Log("Load Key:"+Key+" : "+sJson);
-                BufA = JsonUtility.FromJson<SaveBufACls>(sJson);//Json形式の変換
+            // BufA = JsonUtility.FromJson<SaveBufACls>(sJson);//Json形式の変換
                 //コピー
                 for(i2=0; i2<64; i2++){
                     // Error += Math.Abs( aug.A[Layer,i1,i2] - BufA.A[i2] );
@@ -109,10 +109,10 @@ public class SaveCls{
         //B
         for(Layer = 0; Layer<5; Layer++){
             Key = GetKeyString(aug.MyID, "B", Layer, 0);//キー取得
-            sJson = JsonUtility.ToJson(BufB);//デフォルト値
-            sJson = PlayerPrefs.GetString(Key, sJson);//Json形式のロード
+        // sJson = JsonUtility.ToJson(BufB);//デフォルト値
+        // sJson = PlayerPrefs.GetString(Key, sJson);//Json形式のロード
             // Debug.Log("Load Key:"+Key+" : "+sJson);
-            BufB = JsonUtility.FromJson<SaveBufBCls>(sJson);//Json形式の変換
+        // BufB = JsonUtility.FromJson<SaveBufBCls>(sJson);//Json形式の変換
             //コピー
             for(i1 = 0; i1<64; i1++){
                 // Error += Math.Abs( aug.B[Layer,i1] - BufB.B[i1] );
@@ -125,10 +125,10 @@ public class SaveCls{
         }
         //C
         Key = GetKeyString(aug.MyID, "C", 0, 0);//キー取得
-        sJson = JsonUtility.ToJson(BufC);//デフォルト値
-        sJson = PlayerPrefs.GetString(Key, sJson);//Json形式のロード
+    // sJson = JsonUtility.ToJson(BufC);//デフォルト値
+    // sJson = PlayerPrefs.GetString(Key, sJson);//Json形式のロード
         // Debug.Log("Load Key:"+Key+" : "+sJson);
-        BufC = JsonUtility.FromJson<SaveBufCCls>(sJson);//Json形式の変換
+    // BufC = JsonUtility.FromJson<SaveBufCCls>(sJson);//Json形式の変換
         //コピー
         for(i1 = 0; i1<64; i1++){
             // Error += Math.Abs( aug.C[i1] - BufC.C[i1] );
@@ -149,19 +149,19 @@ public class SaveCls{
     }
     //KKKKKKKKKKKKKKKKKKKK
     public void Save(ref OptiCls aug){
-        string s = JsonUtility.ToJson(aug);
+    // string s = JsonUtility.ToJson(aug);
         string sName = "OptiCls";
-        PlayerPrefs.SetString( sName, s );
+    // PlayerPrefs.SetString( sName, s );
     }
     //KKKKKKKKKKKKKKKKKKKK
     public void Save(ref FlagCls aug){
-        string s = JsonUtility.ToJson(aug);
+    // string s = JsonUtility.ToJson(aug);
         string sName = "FlagCls";
-        PlayerPrefs.SetString( sName, s );
+    // PlayerPrefs.SetString( sName, s );
     }
     //KKKKKKKKKKKKKKKKKKKK
     public void SaveToHDD(){
-        PlayerPrefs.Save();
+    // PlayerPrefs.Save();
     }
     // KKKKKKKKKKKKKKKKKKKK
     public void Load(ref AgentCls[] aug){
@@ -174,16 +174,16 @@ public class SaveCls{
     public void Load(ref OptiCls aug){
         string sName = "OptiCls";
         OptiCls def = new OptiCls();
-        string s = PlayerPrefs.GetString( sName, JsonUtility.ToJson(def) );
-        aug = JsonUtility.FromJson<OptiCls>( s );
+    // string s = PlayerPrefs.GetString( sName, JsonUtility.ToJson(def) );
+    // aug = JsonUtility.FromJson<OptiCls>( s );
     }
     //KKKKKKKKKKKKKKKKKKKK
     public void Load(ref FlagCls aug){
         string sName = "FlagCls";
         FlagCls def = new FlagCls();
         def.InitFlag();
-        string s = PlayerPrefs.GetString( sName, JsonUtility.ToJson(def) );
-        aug = JsonUtility.FromJson<FlagCls>( s );
+    // string s = PlayerPrefs.GetString( sName, JsonUtility.ToJson(def) );
+    // aug = JsonUtility.FromJson<FlagCls>( s );
     }
     //KKKKKKKKKKKKKKKKKKKK
     string GetKeyString(int MyID, string Kind, int Layer, int i1){//キー文字列を生成取得する

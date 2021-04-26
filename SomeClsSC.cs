@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 // using UnityEngine;
 
 public class DirCls{
@@ -9,7 +10,7 @@ public class DirCls{
 
 public class DebugCls{
     public void Log(string s){
-        Consol.Writeline(s);
+        Console.WriteLine(s);
     }
 }
 

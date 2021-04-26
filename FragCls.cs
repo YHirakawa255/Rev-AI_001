@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 // using UnityEngine;
 
+//プログラムの動きを制御するフラグを集めたクラス
 public class FlagCls{
     //KKKKKKKKKKKKKKKKKKKK<<Start>>
     public bool FPlayerBattle = false;//プレイヤー対戦モード（False: 強化学習）
@@ -44,11 +45,11 @@ public class FlagCls{
         return true;
     }
     //KKKKKKKKKKKKKKKKKKKK
-    // public bool SetFOptPre(){
-    //     AllReset();
-    //     FOptPre = true;
-    //     return true;
-    // }
+        // public bool SetFOptPre(){
+        //     AllReset();
+        //     FOptPre = true;
+        //     return true;
+        // }
     //KKKKKKKKKKKKKKKKKKKK
     public bool SetFOptPost(){
         AllReset();
@@ -84,5 +85,6 @@ public class FlagCls{
         FOptRoundRobinDB = false;
         FOptRoundRobinDW = false;
     }
+    //KKKKKKKKKKKKKKKKKKKK
     //KKKKKKKKKKKKKKKKKKKK
 }
