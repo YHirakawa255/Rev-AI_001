@@ -1,0 +1,15 @@
+/Users/hixyelse/Documents/GitHub/Rev-AI_001/bin/Debug/net5.0/Rev-AI_001.deps.json
+/Users/hixyelse/Documents/GitHub/Rev-AI_001/bin/Debug/net5.0/Rev-AI_001.runtimeconfig.json
+/Users/hixyelse/Documents/GitHub/Rev-AI_001/bin/Debug/net5.0/Rev-AI_001.runtimeconfig.dev.json
+/Users/hixyelse/Documents/GitHub/Rev-AI_001/bin/Debug/net5.0/Rev-AI_001.dll
+/Users/hixyelse/Documents/GitHub/Rev-AI_001/bin/Debug/net5.0/ref/Rev-AI_001.dll
+/Users/hixyelse/Documents/GitHub/Rev-AI_001/bin/Debug/net5.0/Rev-AI_001.pdb
+/Users/hixyelse/Documents/GitHub/Rev-AI_001/obj/Debug/net5.0/Rev-AI_001.csprojAssemblyReference.cache
+/Users/hixyelse/Documents/GitHub/Rev-AI_001/obj/Debug/net5.0/Rev-AI_001.GeneratedMSBuildEditorConfig.editorconfig
+/Users/hixyelse/Documents/GitHub/Rev-AI_001/obj/Debug/net5.0/Rev-AI_001.AssemblyInfoInputs.cache
+/Users/hixyelse/Documents/GitHub/Rev-AI_001/obj/Debug/net5.0/Rev-AI_001.AssemblyInfo.cs
+/Users/hixyelse/Documents/GitHub/Rev-AI_001/obj/Debug/net5.0/Rev-AI_001.csproj.CoreCompileInputs.cache
+/Users/hixyelse/Documents/GitHub/Rev-AI_001/obj/Debug/net5.0/Rev-AI_001.dll
+/Users/hixyelse/Documents/GitHub/Rev-AI_001/obj/Debug/net5.0/ref/Rev-AI_001.dll
+/Users/hixyelse/Documents/GitHub/Rev-AI_001/obj/Debug/net5.0/Rev-AI_001.pdb
+/Users/hixyelse/Documents/GitHub/Rev-AI_001/obj/Debug/net5.0/Rev-AI_001.genruntimeconfig.cache

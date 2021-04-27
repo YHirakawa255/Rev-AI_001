@@ -5,6 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;//並列処理
 
+//ビットボードというアイデアで盤面を表すクラス
+//高速化のために導入した
+//現在は動作のテスト状態
+//今後、盤面はこちらに移行していく
 public class BitBoadCls{
     const int Black = 1;
     const int White = -1;
@@ -321,6 +325,7 @@ public class BitBoadCls{
     public string GetConsolPrint(UInt64 B = 0, UInt64 W = 0, string s = "", int Select = -1){
         string S = $"{s}\n\r";
         UInt64 P = 0x8000_0000_0000_0000;
+        int N = 0;
         // ConsolBitPrint(StoneBW[0],"Black");
         // ConsolBitPrint(StoneBW[1],"White");
         // ConsolBitPrint(CanPut,"Putable");
@@ -335,7 +340,12 @@ public class BitBoadCls{
                 }else if( (W & P) > 0 ){
                     S += "口";//白
                 }else if( (CanPut & P) > 0 ){
-                    S += "＊";//
+                    if(N<10){
+                        S += $" {N}";
+                    }else{
+                        S += $"{N}";
+                    }
+                    N++;
                 }else{
                     S += "＿";//完全な空白
                 }
@@ -374,21 +384,12 @@ public class BitBoadCls{
     }
     //KKKKKKKKKKKKKKKKKKKK
     int CountBit(UInt64 aug){
-<<<<<<< Updated upstream:Rev-AI-001/Assets/BitBoadSC.cs
-        aug = (aug & 0x_5555_5555_5555_5555) + (aug>>1 & 0x_5555_5555_5555_5555);
-        aug = (aug & 0x_3333_3333_3333_3333) + (aug>>2 & 0x_3333_3333_3333_3333);
-        aug = (aug & 0x_0F0F_0F0F_0F0F_0F0F) + (aug>>4 & 0x_0F0F_0F0F_0F0F_0F0F);
-        aug = (aug & 0x_00FF_00FF_00FF_00FF) + (aug>>8 & 0x_00FF_00FF_00FF_00FF);
-        aug = (aug & 0x_0000_FFFF_0000_FFFF) + (aug>>16 & 0x_0000_FFFF_0000_FFFF);
-        aug = (aug & 0x_0000_0000_FFFF_FFFF) + (aug>>32 & 0x_0000_0000_FFFF_FFFF);
-=======
         aug = (aug & 0x5555_5555_5555_5555) + (aug>>1 & 0x5555_5555_5555_5555);
         aug = (aug & 0x3333_3333_3333_3333) + (aug>>2 & 0x3333_3333_3333_3333);
         aug = (aug & 0x0F0F_0F0F_0F0F_0F0F) + (aug>>4 & 0x0F0F_0F0F_0F0F_0F0F);
         aug = (aug & 0x00FF_00FF_00FF_00FF) + (aug>>8 & 0x00FF_00FF_00FF_00FF);
         aug = (aug & 0x0000_FFFF_0000_FFFF) + (aug>>16 & 0x0000_FFFF_0000_FFFF);
         aug = (aug & 0x0000_0000_FFFF_FFFF) + (aug>>32 & 0x0000_0000_FFFF_FFFF);
->>>>>>> Stashed changes:BitBoadSC.cs
         return (int)aug;
     }
     //KKKKKKKKKKKKKKKKKKKK

@@ -1,0 +1,41 @@
+{
+    "workbench.colorTheme": "Visual Studio Dark",
+    "editor.codeLensFontFamily": "georgia",
+    "editor.fontFamily": "georgia",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "comment",
+                    "entity.name",
+                    "keyword",//void, int
+                    "constant",//number
+                    "storage.modifier",//public, const
+                    
+                    // "storage.type.class.js",//?
+                    "storage.type",
+                    
+              ],
+              "settings": {
+                "fontStyle": "italic"
+              }
+            }
+        ]
+    },
+    "[json]": {
+
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+        
+    },
+    "zoombar.configurationTarget": "workspace",
+    "editor.fontSize": 15,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "ms-dotnettools.csharp",
+    "editor.formatOnType": true,
+    "prettier.tabWidth": 4,
+    "prettier.useTabs": true,
+    "editor.foldingStrategy": "indentation"
+}

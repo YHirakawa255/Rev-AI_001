@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 // using UnityEngine;
 
+//AIエージェントのクラス
+//盤面の評価などを行う
 public class AgentCls : DirCls{
     public int BisecState = 0;//二分法の状態管理
     const int Black = 1;
@@ -743,7 +745,7 @@ public class BisecManageClass{
     //KKKKKKKKKKKKKKKKKKKK(Debug)
     void StackLog(string s, bool r = true){//デバッグ用の文字列を格納する
         SLog += s;
-        Debug.Log( MyID + "Stack Log : \n\r" + SLog );
+        Debug.Log($"\n\r AI: {MyID} Stack Log : \n\r{SLog}" );
         if(r){
             SLog += "\n\r";
         }

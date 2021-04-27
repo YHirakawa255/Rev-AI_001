@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 // using UnityEngine;
 
+//オセロ盤面のクラス
+//石の情報や、配置可能な場所などを記録している
 public class BoadCls : DirCls{
     const int Black = 1;
     const int White = -1;
@@ -81,7 +83,7 @@ public class BoadCls : DirCls{
     }
     //KKKKKKKKKKKKKKKKKKKK
     public (double e, int p) CalcEBranch(ref AgentCls AI, ref bool fD, int nDeep, int p ){//分岐先まで見て最善手と評価を返すはずだった
-        //!!!ややこしい実装になっているので、深度探索は未実装
+        //深度探索は未実装ー＞ビットボードの方で実装
         //分岐先の盤面を評価し、分岐先の最良値をputListに格納する
         //nDeep：残り分岐深度、p：putListの開始ポインタ（今の所0で固定）
         //putListはグローバル変数で共有している（変えようと思う)
@@ -356,6 +358,7 @@ public class BoadCls : DirCls{
     public string GetConsolPrint(string s = "", int Select = -1){//盤面のコンソール出力用文字列を生成する
         //盤面の簡易表示
         string S = $"{s}\n\r";//表示するときに好きな文字列を表示できる
+        int N = 0;
         int putP = 0;
         for(int iy = 0; iy<8; iy++){
             for(int ix=0; ix<8; ix++){
@@ -364,11 +367,12 @@ public class BoadCls : DirCls{
                 }else if(Stone[ix,iy]==White){
                     S += "口";//白
                 }else if( (putList[putP].x == ix) && (putList[putP].y == iy) ){ 
-                    if(putP==Select){
-                        S += "十";//配置選択中
+                    if(N<10){
+                        S += $"_{N}";
                     }else{
-                        S += "＊";//配置候補
+                        S += $"{N}";
                     }
+                    N++;
                     putP++;
                 }else if( StoneEdge[ix,iy] ){
                     S += "＿";//配置可能検定候補
