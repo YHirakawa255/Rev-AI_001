@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 // using UnityEngine;
 
+//AIエージェントのクラス
+//盤面の評価などを行う
 public class AgentCls : DirCls{
     public int BisecState = 0;//二分法の状態管理
     const int Black = 1;

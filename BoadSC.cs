@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 // using UnityEngine;
 
+//オセロ盤面のクラス
+//石の情報や、配置可能な場所などを記録している
 public class BoadCls : DirCls{
     const int Black = 1;
     const int White = -1;
@@ -81,7 +83,7 @@ public class BoadCls : DirCls{
     }
     //KKKKKKKKKKKKKKKKKKKK
     public (double e, int p) CalcEBranch(ref AgentCls AI, ref bool fD, int nDeep, int p ){//分岐先まで見て最善手と評価を返すはずだった
-        //!!!ややこしい実装になっているので、深度探索は未実装
+        //深度探索は未実装ー＞ビットボードの方で実装
         //分岐先の盤面を評価し、分岐先の最良値をputListに格納する
         //nDeep：残り分岐深度、p：putListの開始ポインタ（今の所0で固定）
         //putListはグローバル変数で共有している（変えようと思う)

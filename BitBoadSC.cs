@@ -5,6 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;//並列処理
 
+//ビットボードというアイデアで盤面を表すクラス
+//高速化のために導入した
+//現在は動作のテスト状態
+//今後、盤面はこちらに移行していく
 public class BitBoadCls{
     const int Black = 1;
     const int White = -1;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 // using UnityEngine;
 
+//主にキー入力を受け付けて、UIを担うクラス
 public class PlayerUISC{
     int Select = 0;//現在の選択を表す
     int Selected = 0;

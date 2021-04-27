@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 // using UnityEngine;
 
+//AIパラメータの保存時に走るクラス
+//Unityで用意されていたメソッドを用いていたため、現状では機能していない
 public class SaveCls{
     //Agent
     DebugCls Debug = new DebugCls();

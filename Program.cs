@@ -5,21 +5,33 @@ namespace Rev_AI_001
     public class Program
     {
         static void Main(string[] args){
-            // Console.WriteLine($"aqwsedfrtgyhujikolp");
-            // string sRead = Console.ReadLine();
-            // Console.WriteLine($"Read: {sRead}");
-            //もともとUnityで開発していたものを.Net Coreで動くように変更をした
-            //StartはUnityオブジェクトが読み込まれた時、最初に一度だけ実行される
+            //オセロAIの学習と、対戦ができるプログラムである
+            //もともとUnityで開発していたものを.Net Coreで動くように変更をしたため、
+            //一部の機能が未実装である（AIパラメータの保存など）
+
+            //AIは石の配置後の盤面評価値でもって行動を決定する
+            //AIのエージェント同士で対戦を行い、学習をすすめる
+
+            //＜開発経緯など＞
+            //言語とAIの勉強としてオセロのAIを作ることにした
+            //強化学習に、学習アルゴリズムとして確率的勾配法と二分法を組み合わせたようなアルゴリズムを使用している。
+            //最初に確率的勾配法を使用したが、オセロのスコアは離散的で、勾配が計算できない問題に直面した
+            //解決策として、二分法のアイデアを元にした探索アルゴリズムを使用したが、AIの学習が思うように進まない問題が発生した
+            //原因として過学習が発生していると考えられる
+            //今後は遺伝的アルゴリズムで学習をしようと考えている
+            //また、エージェントの対戦相手についても検討が必要そうと考えている
+
             Start();
-            //UpdateはUnity内の１フレーム毎に実行される（実質的にはMain）
-            while(!Flag.FFinProgram){
+            //StartはUnityオブジェクトが読み込まれた時、最初に一度だけ実行される
+            while(!Flag.FFinProgram){//プログラムの終了フラグが立つまで実行される
                 Update();
+                //UpdateはUnity内の１フレーム毎に実行される（実質的にはMain）
             }
         }
         //KKKKKKKKKKKKKKKKKKKK
-        static public AgentCls[] Agent = new AgentCls[8];//AI 及びその数
+        static public AgentCls[] Agent = new AgentCls[8];//AIエージェント 及びその数
         static BoadCls Boad = new BoadCls();//盤面
-        static BitBoadCls BitBoad = new BitBoadCls();
+        static BitBoadCls BitBoad = new BitBoadCls();//ビットボード（高速化のために導入途中）
         static string DebugString;//デバッグ情報をフレームの最後に表示するための文字列
         public static FlagCls Flag = new FlagCls();//各種フラグをまとめたクラス
         static int iB, iW, iGeneration, iIteration;//繰り返しのカウンタやポインタ
