@@ -5,6 +5,12 @@ namespace Rev_AI_001
     public class Program
     {
         static void Main(string[] args){
+            //！別のポートフォリオを作成しました。是非ご覧になってください！
+            //ポリオミノパズルの解探索プログラム
+            //https://github.com/YHirakawa255/SolvePolyomino
+            
+            
+            
             //オセロAIの学習と、対戦ができるプログラムである
             //もともとUnityで開発していたものを.Net Coreで動くように変更をしたため、
             //一部の機能が未実装である（AIパラメータの保存など）
